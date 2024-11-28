@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Responsive text balance utility */
+@layer utilities {
+  .text-balance {
+    text-wrap: nowrap;
+  }
+
+  /* Adding responsive utilities for table data */
+  td {
+    @apply text-center align-middle p-2;
+  }
+
+  /* Responsive font size based on screen size */
+  @media (min-width: 640px) {
+    td {
+      @apply text-base; /* Medium devices and up */
+    }
+  }
+
+  @media (min-width: 768px) {
+    td {
+      @apply text-lg; /* Large devices and up */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    td {
+      @apply text-xl; /* Extra large devices and up */
+    }
+  }
+}
+
+.table-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow: auto;
+  /*margin: 20px auto; !* Center the table with margin *!*/
+  /*padding: 0 20px; !* Optional padding for responsiveness *!*/
+}
+
+table {
+  width: 100%;
+  min-width: 100%; /* Ensures table stretches to fill container */
+  border-collapse: collapse;
+  border: 1px solid #D1D5DB; /* Equivalent to border-gray-300 */
+}
+
+th, td {
+  padding: 8px; /* Equivalent to px-4 py-2 */
+  border: 1px solid #D1D5DB;
+  text-align: center;
+}
+
+thead th {
+  background-color: #4FD1C5;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+th:first-child,
+td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #f2f2f2;
+}
+
+th:first-child {
+  z-index: 3;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+
+.TimeTabBox {
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .TimeTabBox {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .TimeTabBox {
+    width: 600px;
+  }
+}
